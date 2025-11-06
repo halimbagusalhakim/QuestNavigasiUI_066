@@ -23,8 +23,8 @@ fun DataApp(
         NavHost(
             navController = navController,
             startDestination = Navigasi.Formulirku.name,
-
-            modifier = Modifier.padding(isiRuang)){
+            modifier = Modifier.padding(isiRuang))
+        {
             composable(route = Navigasi.Formulirku.name){
                 FormIsian(
                     OnSubmitBtnClick = {
@@ -32,11 +32,14 @@ fun DataApp(
                     }
                 )
             }
+            composable (route = Navigasi.Detail.name){
+                TampilData(
+                    onBackBtnClick = {
+                        cancelAndBackToFormulirku(navController)
+                    }
+                )
+            }
         }
     }
 }
 
-@Composable
-fun FormIsian(OnSubmitBtnClick: () -> Unit) {
-    TODO("Not yet implemented")
-}
